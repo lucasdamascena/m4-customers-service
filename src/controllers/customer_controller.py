@@ -66,7 +66,8 @@ class CustomerController:
         try:
             customer = CustomerUseCase(customer_gateway).create(request)
             result = customer_to_json(customer)
-        except Exception:
+        except Exception as e:
+            print(e)
             raise RepositoryError.save_operation_failed()
 
         return {"result": result}
