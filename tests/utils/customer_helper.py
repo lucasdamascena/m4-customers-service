@@ -1,5 +1,6 @@
 from typing import List
 
+from src.entities.models.customer_entity import Customer
 from src.entities.schemas.customer_dto import CreateCustomerDTO, ChangeCustomerDTO
 
 
@@ -45,3 +46,45 @@ class CustomerHelper:
             email="email_novo@email.com",
             phone="(11) 99999-9999"
         )
+
+    @staticmethod
+    def generate_customer_entity() -> Customer:
+        return Customer.create(
+            cpf="000.000.000-01",
+            first_name="Zé",
+            last_name="da Silva",
+            email="email@email.com",
+            phone="99999-9999"
+        )
+
+    @staticmethod
+    def generate_updated_customer_entity() -> Customer:
+        return Customer.create(
+            cpf="000.000.000-01",
+            first_name="Zé",
+            last_name="da Silva Sauro",
+            email="email_novo@email.com",
+            phone="(11) 99999-9999"
+        )
+
+    @staticmethod
+    def generate_multiple_customer_entities() -> List[Customer]:
+        customers_list = []
+        customer1 = Customer.create(
+            cpf="000.000.000-01",
+            first_name="Zé",
+            last_name="da Silva",
+            email="email@email.com",
+            phone="99999-9999"
+        )
+
+        customer2 = Customer.create(
+            cpf="000.000.000-02",
+            first_name="Zé",
+            last_name="da Silva",
+            email="email@email.com",
+            phone="99999-9999"
+        )
+        customers_list.append(customer1)
+        customers_list.append(customer2)
+        return customers_list

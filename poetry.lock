@@ -481,6 +481,17 @@ files = [
 ]
 
 [[package]]
+name = "mockito"
+version = "1.4.0"
+description = "Spying framework"
+optional = false
+python-versions = ">=2.7"
+files = [
+    {file = "mockito-1.4.0-py3-none-any.whl", hash = "sha256:1719c6bec3523f9b465c86d247bb76027f53ab10f76b2a126dde409d0492fe3e"},
+    {file = "mockito-1.4.0.tar.gz", hash = "sha256:409ab604c9ebe1bb7dc18ec6b0ed98a8ad5127b08273f5804b22f4d1b51e5222"},
+]
+
+[[package]]
 name = "packaging"
 version = "23.2"
 description = "Core utilities for Python packages"
@@ -941,4 +952,4 @@ standard = ["colorama (>=0.4)", "httptools (>=0.5.0)", "python-dotenv (>=0.13)",
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.8"
-content-hash = "475f0117fc17f38bb7c8c84d1e24ca92578a8b86e4905973cb47ee5ee77dff8b"
+content-hash = "33f85d01a325a434e1f9fcbee2583c5291d002ec3d70205792153e327c604ffe"

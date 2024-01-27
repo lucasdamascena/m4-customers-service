@@ -20,6 +20,7 @@ pytest = "^7.4.3"
 behave = "^1.2.6"
 requests = "^2.31.0"
 pytest-bdd = "^7.0.1"
+mockito = "^1.4.0"
 
 [build-system]
 requires = ["poetry-core"]
