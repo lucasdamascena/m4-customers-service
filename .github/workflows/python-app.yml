@@ -41,10 +41,10 @@ jobs:
         python-version: "3.8"
     - name: Install dependencies
       run: |
+        export PYTHONPATH=$PWD
         python -m pip install --upgrade pip
         pip install pytest
         pip install mockito
-        export PYTHONPATH=$PWD
         if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
     - name: Test with pytest
       run: |
