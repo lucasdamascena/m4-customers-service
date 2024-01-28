@@ -40,12 +40,6 @@ jobs:
       with:
         python-version: "3.8"
 
-    - name: cache poetry install
-      uses: actions/cache@v2
-      with:
-        path: ~/.local
-        key: poetry-1.1.12-0
-
     - name: Instalar Poetry
       run: |
         curl -sSL https://install.python-poetry.org/ | python3 -
@@ -54,7 +48,6 @@ jobs:
     - name: Instalar Dependências com Poetry
       run: |
          poetry install
-    
 
     - name: Rodar Testes com pytest
       run: |
