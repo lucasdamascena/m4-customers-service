@@ -1,15 +1,17 @@
 {
-    "taskDefinitionArn": "arn:aws:ecs:us-east-1:604623258149:task-definition/task_definition_ecs:1",
+    "taskDefinitionArn": "arn:aws:ecs:us-east-1:604623258149:task-definition/m4-customers:2",
     "containerDefinitions": [
         {
-            "name": "fiap-application",
-            "image": "604623258149.dkr.ecr.us-east-1.amazonaws.com/ecr-modulo-3:df0873ce98ff8a5c38cc442f56210e94a9cf3651",
-            "cpu": 0,
+            "name": "m4-customers",
+            "image": "604623258149.dkr.ecr.us-east-1.amazonaws.com/m4-customers:640b27cd1b21f02a84fcc93f7341920d12c15e2a",
+            "cpu": 1024,
+            "memory": 3072,
+            "memoryReservation": 1024,
             "portMappings": [
                 {
-                    "name": "fiap-application-8000-tcp",
-                    "containerPort": 8000,
-                    "hostPort": 8000,
+                    "name": "m4-customers-8004-tcp",
+                    "containerPort": 8004,
+                    "hostPort": 8004,
                     "protocol": "tcp",
                     "appProtocol": "http"
                 }
@@ -18,7 +20,7 @@
             "environment": [
                 {
                     "name": "POSTGRES_USER",
-                    "value": "fiap"
+                    "value": "postgres"
                 },
                 {
                     "name": "WEBHOOK_BASE_URL",
@@ -30,7 +32,7 @@
                 },
                 {
                     "name": "POSTGRES_HOST",
-                    "value": "m3-db.c10ffknjsfsb.us-east-1.rds.amazonaws.com"
+                    "value": "m4-customers-db.c10ffknjsfsb.us-east-1.rds.amazonaws.com"
                 },
                 {
                     "name": "JWT_SECRET",
@@ -42,11 +44,11 @@
                 },
                 {
                     "name": "ENVIRONMENT",
-                    "value": "dev"
+                    "value": "prod"
                 },
                 {
                     "name": "POSTGRES_PASS",
-                    "value": "Fvb90aBTqMiB24vasviAv9OdgYXWBcuc"
+                    "value": "all962110"
                 },
                 {
                     "name": "MERCADO_PAGO_ACCESS_TOKEN",
@@ -61,27 +63,24 @@
                     "value": "temp"
                 }
             ],
-            "environmentFiles": [],
             "mountPoints": [],
             "volumesFrom": [],
-            "ulimits": [],
             "logConfiguration": {
                 "logDriver": "awslogs",
                 "options": {
                     "awslogs-create-group": "true",
-                    "awslogs-group": "/ecs/task_definition_ecs",
+                    "awslogs-group": "/ecs/",
                     "awslogs-region": "us-east-1",
                     "awslogs-stream-prefix": "ecs"
-                },
-                "secretOptions": []
+                }
             }
         }
     ],
-    "family": "task_definition_ecs",
+    "family": "m4-customers",
     "taskRoleArn": "arn:aws:iam::604623258149:role/my-ecs-execution-role",
-    "executionRoleArn": "arn:aws:iam::604623258149:role/my-ecs-execution-role",
+    "executionRoleArn": "arn:aws:iam::604623258149:role/ecsTaskExecutionRole",
     "networkMode": "awsvpc",
-    "revision": 1,
+    "revision": 2,
     "volumes": [],
     "status": "ACTIVE",
     "requiresAttributes": [
@@ -96,6 +95,9 @@
         },
         {
             "name": "com.amazonaws.ecs.capability.docker-remote-api.1.19"
+        },
+        {
+            "name": "com.amazonaws.ecs.capability.docker-remote-api.1.21"
         },
         {
             "name": "com.amazonaws.ecs.capability.task-iam-role"
@@ -121,13 +123,13 @@
     "requiresCompatibilities": [
         "FARGATE"
     ],
-    "cpu": "2048",
-    "memory": "4096",
+    "cpu": "1024",
+    "memory": "3072",
     "runtimePlatform": {
         "cpuArchitecture": "X86_64",
         "operatingSystemFamily": "LINUX"
     },
-    "registeredAt": "2023-11-05T23:09:57.626Z",
+    "registeredAt": "2024-01-28T23:27:16.684Z",
     "registeredBy": "arn:aws:iam::604623258149:root",
     "tags": []
 }
