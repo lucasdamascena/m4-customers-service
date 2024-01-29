@@ -39,11 +39,15 @@ jobs:
        uses: actions/setup-python@v3
        with:
          python-version: "3.8"
-  
-     - name: Instalar Poetry
+     - name: Install dependencies
        run: |
-         curl -sSL https://install.python-poetry.org/ | python3 -
-         export PATH="$HOME/.local/bin:$PATH"
+         python -m pip install --upgrade pip
+         pip install pytest
+         if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+     - name: Test with pytest
+       run: |
+         pytest tests
+
          
   lint:
     runs-on: ubuntu-latest
